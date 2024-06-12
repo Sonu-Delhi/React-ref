@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from 'react'
 
-function App() {
+const App = () => {
+  const inputRef=useRef();
+  const handleClick=()=>{
+    if(inputRef.current.value.length>0){
+      console.log(inputRef.current.value);
+    }else{
+      alert("Please enter some value");
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type='text' ref={inputRef}/>
+      <button onClick={handleClick}>Click</button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
